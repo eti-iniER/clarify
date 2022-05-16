@@ -1,7 +1,14 @@
 body {
     font-size: 1em;
+    font-family:'Segoe UI', Tahoma, Verdana, sans-serif;
 }
 
 h1 {
-    color: royalblue;
+    color: #6832d1;
+}
+
+textarea {
+    margin: 10px;
+    padding: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
