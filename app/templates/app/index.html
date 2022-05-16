@@ -6,26 +6,32 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'app/bootstrap.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'app/clarify.css' %}">
-    <script src="{% static 'app/clarify.js' %}"></script>
+    <script src="{% static 'app/bootstrap.min.js' %}"></script>
     <title>Clarify -- No more BS</title>
 </head>
 <body>
-    <h1>Words, not barriers</h1>
-    <div>Powerful organizations and individuals hide behind big words and intentional obfuscation.
-        With Clarify, we level the playing field.
+    <div class="container mt-2 mb-4 py-2 ps-5 bg-dark text-white rounded-3">
+        <h1>Words, not barriers</h1>
+        <p>Big words are more than just "difficult to read"-- they are a barrier, and an unfair one at that.
+            At Clarify, our mission is to simplify the most complex documents; contracts, privacy policies, and
+            educational text, so that for the first time, everyone can understand the Internet.
+        </p>
     </div>
-    <form method="post">
-        <div class="content-input" id="content-input">
-            <h2>What they say</h2>
-            <textarea rows="20" cols="50"></textarea>
-        </div>
-        <div class="content-output" id="content-output">
-            <h2>What they mean</h2>
-            <div class="output">
-
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h2>What they said</h2>
+                <form action="{% url 'index' %}" method="post">
+                    {% csrf_token %}
+                    {{ content_input_form.as_p }}
+                    <div class="d-block">
+                        <button class="btn btn-primary" type="submit">Submit</button>
+                    </div>
+                </form>
             </div>
         </div>
-    </form>
+    </div>
 </body>
 </html>
